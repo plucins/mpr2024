@@ -43,4 +43,8 @@ public class Book {
     public void setLoanStatus(LoanStatus loanStatus) {
         this.loanStatus = loanStatus;
     }
+
+    public void setBookType(BookType bookType) {
+        this.bookType = bookType;
+    }
 }
