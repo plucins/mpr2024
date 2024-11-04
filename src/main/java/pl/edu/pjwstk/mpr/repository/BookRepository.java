@@ -1,9 +1,9 @@
-package repository;
+package pl.edu.pjwstk.mpr.repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import model.Book;
+import pl.edu.pjwstk.mpr.model.Book;
 
 public class BookRepository implements RepositoryInterface<Book> {
 

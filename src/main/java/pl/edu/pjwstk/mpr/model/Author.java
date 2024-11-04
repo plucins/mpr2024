@@ -1,4 +1,4 @@
-package model;
+package pl.edu.pjwstk.mpr.model;
 
 import java.time.LocalDate;
 

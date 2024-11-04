@@ -1,8 +1,8 @@
-package model;
+package pl.edu.pjwstk.mpr.model;
 
 import java.time.LocalDateTime;
 
-import model.enums.UserRole;
+import pl.edu.pjwstk.mpr.model.enums.UserRole;
 
 public class User {
     private String email;

@@ -1,4 +1,4 @@
-package repository;
+package pl.edu.pjwstk.mpr.repository;
 
 import java.util.Set;
 

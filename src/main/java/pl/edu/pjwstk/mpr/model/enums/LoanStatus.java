@@ -1,4 +1,4 @@
-package model.enums;
+package pl.edu.pjwstk.mpr.model.enums;
 
 
 public enum LoanStatus {

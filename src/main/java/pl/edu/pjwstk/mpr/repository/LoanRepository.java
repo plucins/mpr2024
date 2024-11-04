@@ -1,9 +1,9 @@
-package repository;
+package pl.edu.pjwstk.mpr.repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import model.Loan;
+import pl.edu.pjwstk.mpr.model.Loan;
 
 public class LoanRepository implements RepositoryInterface<Loan> {
     private final Map<Long, Loan> loans = new HashMap<>();

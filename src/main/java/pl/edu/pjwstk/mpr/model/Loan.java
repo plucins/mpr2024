@@ -1,7 +1,7 @@
-package model;
+package pl.edu.pjwstk.mpr.model;
 
 import java.time.LocalDateTime;
-import model.enums.LoanStatus;
+import pl.edu.pjwstk.mpr.model.enums.LoanStatus;
 
 public class Loan {
     private LocalDateTime loanStartDate;

@@ -1,7 +1,7 @@
-package service;
+package pl.edu.pjwstk.mpr.service;
 
-import model.Book;
-import repository.BookRepository;
+import pl.edu.pjwstk.mpr.model.Book;
+import pl.edu.pjwstk.mpr.repository.BookRepository;
 
 public class BookService {
     BookRepository bookRepository;

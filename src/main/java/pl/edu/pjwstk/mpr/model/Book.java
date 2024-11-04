@@ -1,9 +1,9 @@
-package model;
+package pl.edu.pjwstk.mpr.model;
 
 import java.util.List;
 
-import model.enums.BookType;
-import model.enums.LoanStatus;
+import pl.edu.pjwstk.mpr.model.enums.BookType;
+import pl.edu.pjwstk.mpr.model.enums.LoanStatus;
 
 public class Book {
     private String tile;

@@ -1,8 +1,13 @@
-package service;
+package pl.edu.pjwstk.mpr.service;
 
-import model.User;
-import repository.UserRepository;
+import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import pl.edu.pjwstk.mpr.model.User;
+import pl.edu.pjwstk.mpr.repository.UserRepository;
+
+@Service
 public class UserService {
     UserRepository userRepository;
 
@@ -16,7 +21,7 @@ public class UserService {
 
     public User getUserById(Long id) {
         if (!userRepository.isUserExists(id)) {
-            throw new IllegalArgumentException(" Could not find User with ID: " + id);
+            throw new IllegalArgumentException("Could not find User with ID: " + id);
         }
         return userRepository.getUserById(id);
     }
@@ -39,6 +44,10 @@ public class UserService {
 
         return userRepository.updateUser(actualUserId, actualUser);
 
+    }
+
+    public List<User> getAllUsers(){
+        return userRepository.getAllUsers();
     }
 
 }

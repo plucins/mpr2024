@@ -1,12 +1,15 @@
-package repository;
+package pl.edu.pjwstk.mpr.repository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
 
-import model.User;
+import pl.edu.pjwstk.mpr.model.User;
 
 
+@Repository
 public class UserRepository implements RepositoryInterface<User> {
     private final Map<Long, User> users = new HashMap<>();
 
@@ -35,5 +38,9 @@ public class UserRepository implements RepositoryInterface<User> {
 
     public boolean deleteUserById(Long id){
         return users.remove(id) != null;
+    }
+
+    public List<User> getAllUsers(){
+        return users.values().stream().toList();
     }
 }
