@@ -1,7 +1,9 @@
 package pl.edu.pjwstk.mpr.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pl.edu.pjwstk.mpr.model.User;
@@ -11,24 +13,24 @@ import pl.edu.pjwstk.mpr.repository.UserRepository;
 public class UserService {
     UserRepository userRepository;
 
+    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     public User createUser(User user) {
-        return userRepository.createUser(user);
+        return userRepository.save(user);
     }
 
     public User getUserById(Long id) {
-        if (!userRepository.isUserExists(id)) {
+        if (!userRepository.existsById(id)) {
             throw new IllegalArgumentException("Could not find User with ID: " + id);
         }
-        return userRepository.getUserById(id);
+        return userRepository.findById(id).get();
     }
 
     public void deleteUser(Long id){
-        getUserById(id);
-        userRepository.deleteUserById(id);
+        userRepository.delete(getUserById(id));
     }
 
     public User updateUser(Long actualUserId, User updatedUser){
@@ -42,12 +44,12 @@ public class UserService {
             actualUser.setRole(updatedUser.getRole());
         }
 
-        return userRepository.updateUser(actualUserId, actualUser);
+        return userRepository.save(actualUser);
 
     }
 
     public List<User> getAllUsers(){
-        return userRepository.getAllUsers();
+        return userRepository.findAll();
     }
 
 }

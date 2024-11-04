@@ -1,46 +1,16 @@
 package pl.edu.pjwstk.mpr.repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import pl.edu.pjwstk.mpr.model.User;
-
+import pl.edu.pjwstk.mpr.model.enums.UserRole;
 
 @Repository
-public class UserRepository implements RepositoryInterface<User> {
-    private final Map<Long, User> users = new HashMap<>();
+public interface UserRepository extends JpaRepository<User, Long> {
+    List<User> findAllByRole(UserRole userRole);
 
-    @Override
-    public Map<Long, User> getDataBase() {
-        return users;
-    }
-
-    public User createUser(User user){
-        users.put(RepoUtils.getNextId(this), user);
-        return users.get(RepoUtils.getHighestId(this));
-    }
-
-    public User getUserById(Long id){
-        return users.get(id);
-    }
-
-    public boolean isUserExists(Long id){
-        return users.containsKey(id);
-    }
-
-    public User updateUser(Long actualUserId, User updatedUser){
-        users.replace(actualUserId, updatedUser);
-        return getUserById(actualUserId);
-    }
-
-    public boolean deleteUserById(Long id){
-        return users.remove(id) != null;
-    }
-
-    public List<User> getAllUsers(){
-        return users.values().stream().toList();
-    }
 }
