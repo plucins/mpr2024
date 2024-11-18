@@ -12,5 +12,5 @@ import pl.edu.pjwstk.mpr.model.enums.UserRole;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAllByRole(UserRole userRole);
-
+    List<User> findAllByActive(boolean isActive);
 }

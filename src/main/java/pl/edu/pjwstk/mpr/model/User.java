@@ -23,7 +23,8 @@ public class User {
     @Column(name = "user_role")
     private UserRole role;
     private LocalDateTime creationDate;
-    private boolean isActive;
+    @Column(name = "is_active")
+    private Boolean active;
 
     public User() {
     }
@@ -32,11 +33,7 @@ public class User {
         this.email = email;
         this.role = UserRole.STANDARD_USER;
         this.creationDate = LocalDateTime.now();
-        this.isActive = true;
-    }
-
-    public Long getId() {
-        return id;
+        this.active = true;
     }
 
     public String getEmail() {
@@ -55,11 +52,11 @@ public class User {
         return creationDate;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public Boolean getActive() {
+        return active;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setActive(Boolean active) {
+        active = active;
     }
 }

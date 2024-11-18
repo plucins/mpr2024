@@ -36,8 +36,8 @@ public class UserService {
     public User updateUser(Long actualUserId, User updatedUser){
         User actualUser = getUserById(actualUserId);
 
-        if(!actualUser.isActive() == updatedUser.isActive()){
-            actualUser.setActive(updatedUser.isActive());
+        if(!actualUser.getActive() == updatedUser.getActive()){
+            actualUser.setActive(updatedUser.getActive());
         }
 
         if(!actualUser.getRole().equals(updatedUser.getRole())){
