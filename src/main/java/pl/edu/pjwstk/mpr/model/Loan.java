@@ -28,13 +28,18 @@ public class Loan {
     public Loan() {
     }
 
-    public Loan(User loanTo, User employee, Book loanBook) {
+    public Loan(User loanTo, User employee, Book loanBook, LocalDateTime actualLoanEndDate) {
         this.loanStartDate = LocalDateTime.now();
         this.expectedLoanEndDate = LocalDateTime.now().plusDays(7);
         this.loanStatus = LoanStatus.DURING_LOAN;
         this.loanTo = loanTo;
         this.employee = employee;
+        this.actualLoanEndDate = actualLoanEndDate;
         this.loanBook = loanBook;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public LocalDateTime getLoanStartDate() {
@@ -63,5 +68,17 @@ public class Loan {
 
     public Book getLoanBook() {
         return loanBook;
+    }
+
+    public void setActualLoanEndDate(LocalDateTime actualLoanEndDate) {
+        this.actualLoanEndDate = actualLoanEndDate;
+    }
+
+    public void setLoanStatus(LoanStatus loanStatus) {
+        this.loanStatus = loanStatus;
+    }
+
+    public void setLoanTo(User loanTo) {
+        this.loanTo = loanTo;
     }
 }

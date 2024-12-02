@@ -32,10 +32,6 @@ public class BookService {
     public Book updateBook(Long actualBookId, Book updatedBook) {
         Book actualBook = getBookById(actualBookId);
 
-        if (!actualBook.getLoanStatus().equals(updatedBook.getLoanStatus())) {
-            actualBook.setLoanStatus(updatedBook.getLoanStatus());
-        }
-
         if (!actualBook.getBookType().equals(updatedBook.getBookType()) && updatedBook.getBookType() != null) {
             actualBook.setBookType(updatedBook.getBookType());
         }

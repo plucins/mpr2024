@@ -1,21 +1,16 @@
 package pl.edu.pjwstk.mpr.repository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import pl.edu.pjwstk.mpr.model.Loan;
+import pl.edu.pjwstk.mpr.model.enums.LoanStatus;
 
-public class LoanRepository implements RepositoryInterface<Loan> {
-    private final Map<Long, Loan> loans = new HashMap<>();
-
-    public Loan createLoan(Loan loan){
-        loans.put(RepoUtils.getNextId(this), loan);
-        return loans.get(RepoUtils.getHighestId(this));
-    }
-
-
-    @Override
-    public Map<Long, Loan> getDataBase() {
-        return loans;
-    }
+@Repository
+public interface LoanRepository extends JpaRepository<Loan,Long > {
+    List<Loan> findAllByLoanStatus(LoanStatus loanStatus);
 }
